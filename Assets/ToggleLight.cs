@@ -3,13 +3,17 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ToggleLight : MonoBehaviour
 {
-    public Light pointLight; 
+    public Light pointLight;
+    public AudioSource audioSource; 
+    public AudioClip turnOnSound; 
+    public AudioClip turnOffSound;
 
     private XRBaseInteractable interactable; 
 
     private void Awake()
     {
-        interactable = GetComponent<XRBaseInteractable>(); 
+        interactable = GetComponent<XRBaseInteractable>();
+        pointLight.enabled = false;
     }
 
     private void OnEnable()
@@ -24,7 +28,15 @@ public class ToggleLight : MonoBehaviour
 
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
-        // Toggle the light on and off
         pointLight.enabled = !pointLight.enabled;
+        if (pointLight.enabled)
+        {
+            audioSource.clip = turnOnSound;
+        }
+        else
+        {
+            audioSource.clip = turnOffSound;
+        }
+        audioSource.Play(); 
     }
 }

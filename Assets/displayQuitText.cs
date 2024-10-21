@@ -3,14 +3,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class displayQuitText : MonoBehaviour
 {
-    public GameObject textObject;  // Reference to the Text (Quit) GameObject
+    public GameObject textObject; 
 
-    private XRBaseInteractable interactable;  // Reference to the interactable component
+    private XRBaseInteractable interactable; 
 
     private void Awake()
     {
-        interactable = GetComponent<XRBaseInteractable>();  // Get the XR Interactable component
-        textObject.SetActive(false);  // Ensure the text is initially hidden
+        interactable = GetComponent<XRBaseInteractable>(); 
+        textObject.SetActive(false); 
     }
 
     private void OnEnable()
@@ -27,13 +27,11 @@ public class displayQuitText : MonoBehaviour
 
     private void OnHoverEntered(HoverEnterEventArgs args)
     {
-        // Show the text when the ray hovers over the door
         textObject.SetActive(true);
     }
 
     private void OnHoverExited(HoverExitEventArgs args)
     {
-        // Hide the text when the ray stops hovering over the door
         textObject.SetActive(false);
     }
 }
