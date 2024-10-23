@@ -45,6 +45,7 @@ public class eatDonut : MonoBehaviour
             }
 
             StartCoroutine(PlaySoundAndDestroy());
+
         }
     }
 
@@ -54,7 +55,7 @@ public class eatDonut : MonoBehaviour
 
         yield return new WaitForSeconds(audioSource.clip.length);
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }
