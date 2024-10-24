@@ -1,19 +1,19 @@
 using UnityEngine;
 
+//resets the cubes in the stand2
 public class resetButton : MonoBehaviour
 {
-    public GameObject[] objectsToReset;  // Array to store the objects you want to reset
+    public GameObject[] objectsToReset;
 
-    private Vector3[] originalPositions;  // Store original positions
-    private Quaternion[] originalRotations;  // Store original rotations
+    private Vector3[] originalPositions;  // store original positions
+    private Quaternion[] originalRotations;  // store original rotations
 
     void Start()
     {
-        // Initialize arrays
         originalPositions = new Vector3[objectsToReset.Length];
         originalRotations = new Quaternion[objectsToReset.Length];
 
-        // Store the original positions and rotations
+        // store the original positions and rotations
         for (int i = 0; i < objectsToReset.Length; i++)
         {
             originalPositions[i] = objectsToReset[i].transform.position;
@@ -21,7 +21,7 @@ public class resetButton : MonoBehaviour
         }
     }
 
-    // This method will reset all objects to their original positions and rotations
+    // reset all objects to their original positions and rotations
     public void ResetObjects()
     {
         for (int i = 0; i < objectsToReset.Length; i++)
@@ -29,7 +29,6 @@ public class resetButton : MonoBehaviour
             objectsToReset[i].transform.position = originalPositions[i];
             objectsToReset[i].transform.rotation = originalRotations[i];
 
-            // Optional: Reset Rigidbody velocity and angular velocity if present
             Rigidbody rb = objectsToReset[i].GetComponent<Rigidbody>();
             if (rb != null)
             {

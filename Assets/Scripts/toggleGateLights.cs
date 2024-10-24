@@ -2,16 +2,14 @@ using UnityEngine;
 
 public class toggleGateLights : MonoBehaviour
 {
-    public Light lightToToggle;  // Reference to the Light component
+    public Light lightToToggle; 
 
-    private bool isLightOn = false;  // State to keep track of the light
+    private bool isLightOn = false;  // state to keep track of the light
 
     public void ToggleLight()
     {
-        // Toggle the state
         isLightOn = !isLightOn;
 
-        // Turn the light on or off based on the new state
         lightToToggle.enabled = isLightOn;
     }
 }

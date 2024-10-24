@@ -3,6 +3,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.UI;
 using System.Collections;
 
+
+// depending on the donut, it will show or remove a filter on the player's camera. when the user triggers a donut, we make the donut disappear and a sound is played
 public class eatDonut : MonoBehaviour
 {
     private bool isEaten;

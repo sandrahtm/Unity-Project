@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+
+//used to display texts like "chat" "leave" "reset" when the player hovers the ray on the object
 public class displayTextOnHover : MonoBehaviour
 {
     public GameObject textObject; 

@@ -17,14 +17,13 @@ public class logicGates : MonoBehaviour
 
     private void Start()
     {
-        // Subscribe to interaction events for input bulbs
         bulbIn1Interactable.selectEntered.AddListener((ctx) => ToggleBulb1());
         bulbIn2Interactable.selectEntered.AddListener((ctx) => ToggleBulb2());
 
-        UpdateOutput();  // Initial output update
+        UpdateOutput(); 
     }
 
-    // Method to toggle bulb 1
+    // toggle bulb 1
     private void ToggleBulb1()
     {
         bulbIn1State = !bulbIn1State;
@@ -32,7 +31,7 @@ public class logicGates : MonoBehaviour
         UpdateOutput();
     }
 
-    // Method to toggle bulb 2
+    // toggle bulb 2
     private void ToggleBulb2()
     {
         bulbIn2State = !bulbIn2State;
@@ -40,19 +39,18 @@ public class logicGates : MonoBehaviour
         UpdateOutput();
     }
 
-    // Method to change the gate type
+    // change the gate type
     public void ChangeGateType(GateType newGateType)
     {
-        currentGateType = newGateType;  // Update the gate type
-        UpdateOutput();  // Recalculate the output with the new gate type
+        currentGateType = newGateType;  // update the gate type
+        UpdateOutput();  
     }
 
-    // Method to update the output light based on gate logic
+    // update the output light based on gate logic
     private void UpdateOutput()
     {
         bool outputState = false;
 
-        // Calculate the output state based on the current gate type and input states
         switch (currentGateType)
         {
             case GateType.OR:
@@ -69,6 +67,6 @@ public class logicGates : MonoBehaviour
                 break;
         }
 
-        bulbOutLight.enabled = outputState;  // Update the output light based on the result
+        bulbOutLight.enabled = outputState; 
     }
 }

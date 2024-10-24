@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class FloatingObject : MonoBehaviour
 {
-    public float waterLevel = 0f;         // Reference water level
-    public float floatThreshold = 2f;     // Buoyancy threshold
-    public float waterDensity = 1f;       // Water density
-    public float downForce = 4f;          // Downward force due to weight
-    public GameObject waterCube;          // Reference to the water cube
+    public float waterLevel = 0f;        
+    public float floatThreshold = 2f;   
+    public float waterDensity = 1f;    
+    public float downForce = 4f;        
+    public GameObject waterCube;   
 
     private Rigidbody rb;
     private Bounds waterBounds;
@@ -15,7 +15,7 @@ public class FloatingObject : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        // Get the bounds of the water cube (using the collider or renderer)
+        // we get the bounds of the water cube (using the collider or renderer)
         if (waterCube != null)
         {
             Collider waterCollider = waterCube.GetComponent<Collider>();
@@ -32,11 +32,11 @@ public class FloatingObject : MonoBehaviour
         Debug.Log("object height " + objectHeight);
         float difference = waterLevel - objectHeight;
 
-        // Check if the object is within the bounds of the water
+        // checks if the object is within the bounds of the water
         if (IsInWater())
         {
             Debug.Log("is in water");
-            if (difference > 0)  // Object is below the water surface
+            if (difference > 0)  
             {
                 Debug.Log("is deep in water");
                 float floatForce = difference * waterDensity - rb.mass * downForce;
@@ -45,10 +45,9 @@ public class FloatingObject : MonoBehaviour
         }
     }
 
-    // Method to check if the object is within the water bounds
     private bool IsInWater()
     {
         Vector3 objectPosition = transform.position;
-        return waterBounds.Contains(objectPosition);  // Check if the object is inside the water cube's bounds
+        return waterBounds.Contains(objectPosition);  // checks if the object is inside the water cube's bounds
     }
 }
